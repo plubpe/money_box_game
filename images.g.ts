@@ -422,88 +422,6 @@ b b b b b b b b b b b b b b b b
 . . . d d d d d d d d d . . . 
 . . . . . . 2 2 2 . . . . . . 
 `];
-            case "myAnim2":
-            case "anim4":return [img`
-. . . . . 2 2 2 2 2 . . . . . 
-. . . . 2 2 2 2 2 2 2 . . . . 
-. . . 1 1 2 2 2 2 2 2 2 . . . 
-. . 1 1 1 2 2 1 2 2 2 2 2 . . 
-. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
-. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-. . . 1 1 1 d d d d d d . . . 
-. . . 1 f 1 d d d d d d . . . 
-. . . 1 1 1 d d d 2 2 d . . . 
-. . . d d d d d d 2 2 d . . . 
-. . . d d d f d d 2 2 d . . . 
-. . . f f f d d d 2 2 d . . . 
-. . . d d d d d d d d d . . . 
-. . . d d d d d d d d d . . . 
-. . . . . . 2 2 2 . . . . . . 
-`, img`
-. . . . . 2 2 2 2 2 . . . . . 
-. . . . 2 2 2 2 2 2 2 . . . . 
-. . . 1 1 2 2 2 2 2 2 2 . . . 
-. . 1 1 1 2 2 1 2 2 2 2 2 . . 
-. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
-. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-. . . f f f d d d d d d . . . 
-. . . f 1 f d d d d d d . . . 
-. . . f f f d 2 2 2 2 d 2 . . 
-. . . d d d d 2 2 2 2 d 2 . . 
-. . . f f f f d d d d d . . . 
-. . . d d d d d d d d d . . . 
-. . . d d d d d d d d d . . . 
-. . . 2 2 2 d d d d d d . . . 
-. . . 2 2 2 . 2 2 2 . . . . . 
-`, img`
-. . . . . 2 2 2 2 2 . . . . . 
-. . . . 2 2 2 2 2 2 2 . . . . 
-. . . 1 1 2 2 2 2 2 2 2 . . . 
-. . 1 1 1 2 2 1 2 2 2 2 2 . . 
-. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
-. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-. . . 1 1 1 d d d d d d . . . 
-. . . 1 f 1 d d d d d d . . . 
-. . . 1 1 1 d d d 2 2 d . . . 
-. . . d d d d d d 2 2 d . . . 
-. . . f f f f d d 2 2 d . . . 
-. . . d d d d d d 2 2 d . . . 
-. . . d d d d d d d d d . . . 
-. . . d d d d d d d d d . . . 
-. . . . . . 2 2 2 . . . . . . 
-`, img`
-. . . . . 2 2 2 2 2 . . . . . 
-. . . . 2 2 2 2 2 2 2 . . . . 
-. . . 1 1 2 2 2 2 2 2 2 . . . 
-. . 1 1 1 2 2 1 2 2 2 2 2 . . 
-. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
-. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-. . . f f f d d d d d d . . . 
-. . . f 1 f d d d d d d . . . 
-. . . f f f d d d d 2 2 2 . . 
-. . . d d d d d d d 2 2 2 . . 
-. . . f f f f d d d d d . . . 
-. . . d d d d d d d d d . . . 
-. . . d d d d d d d d d . . . 
-. . . d d d d 2 2 2 d d . . . 
-. . . 2 2 2 . 2 2 2 . . . . . 
-`, img`
-. . . . . 2 2 2 2 2 . . . . . 
-. . . . 2 2 2 2 2 2 2 . . . . 
-. . . 1 1 2 2 2 2 2 2 2 . . . 
-. . 1 1 1 2 2 1 2 2 2 2 2 . . 
-. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
-. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-. . . 1 1 1 d d d d d d . . . 
-. . . 1 f 1 d d d d d d . . . 
-. . . 1 1 1 d d d 2 2 d . . . 
-. . . d d d d d d 2 2 d . . . 
-. . . f f f f d d 2 2 d . . . 
-. . . d d d d d d 2 2 d . . . 
-. . . d d d d d d d d d . . . 
-. . . d d d d d d d d d . . . 
-. . . . . . 2 2 2 . . . . . . 
-`];
             case "myAnim7":
             case "anim9":return [img`
 . . . . . 2 2 2 2 2 . . . . . 
@@ -682,8 +600,8 @@ b b b b b b b b b b b b b b b b
 . 2 1 1 2 2 2 2 2 2 1 1 1 2 . 
 . 2 2 d 2 2 d d 1 2 d 2 2 2 . 
 `];
-            case "myAnim3":
-            case "anim5":return [img`
+            case "myAnim4":
+            case "anim6":return [img`
 . . . . . 2 2 2 2 2 . . . . . 
 . . . . 2 2 2 2 2 2 2 . . . . 
 . . . 2 2 2 1 1 1 2 2 2 . . . 
@@ -764,8 +682,8 @@ b b b b b b b b b b b b b b b b
 . . . d d d d d d d d d . . . 
 . . . . 2 2 . . . 2 2 . . . . 
 `];
-            case "myAnim9":
-            case "anim11":return [img`
+            case "myAnim5":
+            case "anim7":return [img`
 . . . . . 2 2 2 2 2 . . . . . 
 . . . . 2 2 2 2 2 2 2 . . . . 
 . . . 2 2 2 1 1 1 2 2 2 . . . 
@@ -846,8 +764,8 @@ b b b b b b b b b b b b b b b b
 . . . d d d d d d d d d . . . 
 . . . . 2 2 . . . 2 2 . . . . 
 `];
-            case "myAnim10":
-            case "anim12":return [img`
+            case "myAnim6":
+            case "anim8":return [img`
 . . . . . 2 2 2 2 2 . . . . . 
 . . . . 2 2 2 2 2 2 2 . . . . 
 . . . 2 2 2 1 1 1 2 2 2 . . . 
@@ -928,8 +846,8 @@ b b b b b b b b b b b b b b b b
 . . . d d d d d d d d d . . . 
 . . . . 2 2 . . . 2 2 . . . . 
 `];
-            case "myAnim11":
-            case "anim13":return [img`
+            case "myAnim8":
+            case "anim10":return [img`
 . . . . . 2 2 2 2 2 . . . . . 
 . . . . 2 2 2 2 2 2 2 . . . . 
 . . . 2 2 2 1 1 1 2 2 2 . . . 
@@ -1010,8 +928,8 @@ b b b b b b b b b b b b b b b b
 . . . d d d d d d d d d . . . 
 . . . . 2 2 . . . 2 2 . . . . 
 `];
-            case "myAnim13":
-            case "anim15":return [img`
+            case "myAnim12":
+            case "anim14":return [img`
 . . f f f . . . . f . f . f . . 
 . . f 1 1 f . . f 1 f 1 f 1 f . 
 . . f 1 1 1 f . f 1 f 1 f 1 f . 
@@ -1080,8 +998,8 @@ f 1 f 1 f 1 f . . . . . f 1 1 f
 . f 1 f . . . . . . . . f 1 f . 
 . f f . . . . . . . . . . f f . 
 `];
-            case "myAnim14":
-            case "anim16":return [img`
+            case "myAnim18":
+            case "anim20":return [img`
 . . f . f . f . . . . f f f . . 
 . f 1 f 1 f 1 f . . f 1 1 f . . 
 . f 1 f 1 f 1 f . f 1 1 1 f . . 
@@ -1150,8 +1068,8 @@ f 1 1 1 f . . . . f 1 1 f 1 f .
 . f 1 f . . . . . . . . f 1 f . 
 . f f . . . . . . . . . . f f . 
 `];
-            case "myAnim15":
-            case "anim17":return [img`
+            case "myAnim19":
+            case "anim21":return [img`
 . . . . . . . . . . . . . . . . 
 . f f f f f f f . . . . . . . . 
 f 1 1 1 1 1 1 1 f . . . . . . . 
@@ -1220,8 +1138,8 @@ f 1 f 1 f 1 f . . . . . f 1 f .
 f 1 f 1 f . . . . . . . . . f f 
 . f 1 f . . . . . . . . . . . . 
 `];
-            case "myAnim16":
-            case "anim18":return [img`
+            case "myAnim20":
+            case "anim22":return [img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . f f f f f f f . 
 . . . . . . . f 1 1 1 1 1 1 1 f 
@@ -1290,8 +1208,8 @@ f 1 f . . . . . . . f 1 f 1 f 1
 f f . . . . . . . . . f 1 f 1 f 
 . . . . . . . . . . . . f 1 f . 
 `];
-            case "myAnim17":
-            case "anim19":return [img`
+            case "myAnim21":
+            case "anim23":return [img`
 . . b b b b b b b b b b b b . . 
 . b e 4 4 4 4 4 4 4 4 4 4 e b . 
 b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
@@ -1359,6 +1277,224 @@ c c c c c c c c c c c c c c c c
 1 e e e e e e e e e e e e e e 1 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 . . . . . . . 1 1 . . . . . . . 
+`];
+            case "myAnim3":
+            case "anim5":return [img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 2 2 2 1 1 1 2 2 2 . . . 
+. . 2 1 2 2 1 1 1 2 2 1 2 . . 
+. 2 1 1 2 2 2 1 2 2 2 1 1 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . 1 1 1 d d d 1 1 1 . . . 
+. . . 1 f 1 d d d 1 f 1 . . . 
+. . . 1 1 1 d d d 1 1 1 . . . 
+. 2 2 d d d d d d d d d 2 2 . 
+. 2 2 d f d d d d d f d 2 2 . 
+. 2 2 d d f f f f f d d 2 2 . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . 2 2 . . . 2 2 . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 2 2 2 1 1 1 2 2 2 . . . 
+. . 2 1 2 2 1 1 1 2 2 1 2 . . 
+. 2 1 1 2 2 2 1 2 2 2 1 1 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . f f f d d d f f f . . . 
+. . . f 1 f d d d f 1 f 2 2 . 
+. . . f f f d d d f f f 2 2 . 
+. 2 2 d d d d d d d d d 2 2 . 
+. 2 2 d f f f f f f f d . . . 
+. 2 2 d d d d d d 9 9 d . . . 
+. . . d 2 2 d d d d 9 d . . . 
+. . . d 2 2 d d d 9 d d . . . 
+. . . . . . . . . 2 2 . . . . 
+`];
+            case "myAnim9":
+            case "anim11":return [img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 2 2 2 1 1 1 2 2 2 . . . 
+. . 2 1 2 2 1 1 1 2 2 1 2 . . 
+. 2 1 1 2 2 2 1 2 2 2 1 1 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. 2 2 d d d d d d d d d 2 2 . 
+. 2 2 d d d d d d d d d 2 2 . 
+. 2 2 d d d d d d d d d 2 2 . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . 2 2 . . . 2 2 . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 2 2 2 1 1 1 2 2 2 . . . 
+. . 2 1 2 2 1 1 1 2 2 1 2 . . 
+. 2 1 1 2 2 2 1 2 2 2 1 1 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d 2 2 . 
+. 2 2 d d d d d d d d d 2 2 . 
+. 2 2 d d d d d d d d d 2 2 . 
+. 2 2 d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . 2 2 . . . . . . . . . 
+`];
+            case "myAnim2":
+            case "anim4":return [img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 1 1 2 2 2 2 2 2 2 . . . 
+. . 1 1 1 2 2 1 2 2 2 2 2 . . 
+. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . 1 1 1 d d d d d d . . . 
+. . . 1 f 1 d d d d d d . . . 
+. . . 1 1 1 d d d 2 2 d . . . 
+. . . d d d d d d 2 2 d . . . 
+. . . d d f d d d 2 2 d . . . 
+. . . f f d d d d 2 2 d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . . . 2 2 2 . . . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 1 1 2 2 2 2 2 2 2 . . . 
+. . 1 1 1 2 2 1 2 2 2 2 2 . . 
+. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . f f f d d d d d d . . . 
+. . . f 1 f d d d d d d . . . 
+. . . f f f d 2 2 2 2 d 2 . . 
+. . . d d d d 2 2 2 2 d 2 . . 
+. . . f f f f d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . 2 2 2 d d d d d d . . . 
+. . . 2 2 2 . 2 2 2 . . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 1 1 2 2 2 2 2 2 2 . . . 
+. . 1 1 1 2 2 1 2 2 2 2 2 . . 
+. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . 1 1 1 d d d d d d . . . 
+. . . 1 f 1 d d d d d d . . . 
+. . . 1 1 1 d d d 2 2 d . . . 
+. . . d d d d d d 2 2 d . . . 
+. . . f f f f d d 2 2 d . . . 
+. . . d d d d d d 2 2 d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . . . 2 2 2 . . . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 1 1 2 2 2 2 2 2 2 . . . 
+. . 1 1 1 2 2 1 2 2 2 2 2 . . 
+. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . f f f d d d d d d . . . 
+. . . f 1 f d d d d d d . . . 
+. . . f f f d d d d 2 2 2 . . 
+. . . d d d d d d d 2 2 2 . . 
+. . . f f f f d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d 2 2 2 d d . . . 
+. . . 2 2 2 . 2 2 2 . . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 1 1 2 2 2 2 2 2 2 . . . 
+. . 1 1 1 2 2 1 2 2 2 2 2 . . 
+. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . 1 1 1 d d d d d d . . . 
+. . . 1 f 1 d d d d d d . . . 
+. . . 1 1 1 d d d 2 2 d . . . 
+. . . d d d d d d 2 2 d . . . 
+. . . f f f f d d 2 2 d . . . 
+. . . d d d d d d 2 2 d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . . . 2 2 2 . . . . . . 
+`];
+            case "myAnim11":
+            case "anim13":return [img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 1 1 2 2 2 2 2 2 2 . . . 
+. . 1 1 1 2 2 1 2 2 2 2 2 . . 
+. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . 1 1 1 d d d d d d . . . 
+. . . 1 f 1 d d d d d d . . . 
+. . . 1 1 1 d d d 2 2 d . . . 
+. . . d d d d d d 2 2 d . . . 
+. . . d d f d d d 2 2 d . . . 
+. . . f f d d d d 2 2 d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . . . 2 2 2 . . . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 1 1 2 2 2 2 2 2 2 . . . 
+. . 1 1 1 2 2 1 2 2 2 2 2 . . 
+. 2 2 1 2 2 2 1 1 2 2 2 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . f f f d d d d d d . . . 
+. . . f 1 f d d d d d d . . . 
+. . . f f f d 2 2 2 2 d 2 . . 
+. . . d d d d 2 2 2 2 d 2 . . 
+. . . f f f d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . 2 2 2 d d d d d d . . . 
+. . . 2 2 2 . 2 2 2 . . . . . 
+`];
+            case "myAnim10":
+            case "anim12":return [img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 2 2 2 2 2 2 2 1 1 . . . 
+. . 2 2 2 2 2 1 2 2 1 1 1 . . 
+. 2 2 2 2 2 1 1 2 2 2 1 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . d d d d d d 1 1 1 . . . 
+. . . d d d d d d 1 f 1 . . . 
+. . . d 2 2 d d d 1 1 1 . . . 
+. . . d 2 2 d d d d d d . . . 
+. . . d 2 2 d d f d d d . . . 
+. . . d 2 2 d d d f f f . . . 
+. . . d d d d d d d d d . . . 
+. . . d d d d d d d d d . . . 
+. . . . . . 2 2 2 . . . . . . 
+`, img`
+. . . . . 2 2 2 2 2 . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . 
+. . . 2 2 2 2 2 2 2 1 1 . . . 
+. . 2 2 2 2 2 1 2 2 1 1 1 . . 
+. 2 2 2 2 2 1 1 2 2 2 1 2 2 . 
+. 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+. . . d d d d d d f f f . . . 
+. . . d d d d d d f 1 f . . . 
+. . 2 d 2 2 2 2 d f f f . . . 
+. . 2 d 2 2 2 2 d d d d . . . 
+. . . d d d d d f f f f . . . 
+. . . d d d d d 9 9 d d . . . 
+. . . d d d d d d 9 d d . . . 
+. . . d d d d d 9 2 2 2 . . . 
+. . . . . 2 2 2 . 2 2 2 . . . 
 `];
         }
         return null;
