@@ -2,7 +2,9 @@
     "name": "money_box_game",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "Sprite Grid": "github:microsoft/arcade-grid#v1.3.0",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0"
     },
     "files": [
         "main.blocks",
@@ -25,5 +27,6 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "pyprj"
+    "preferredEditor": "pyprj",
+    "languageRestriction": "python-only"
 }
