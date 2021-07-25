@@ -7,33 +7,58 @@ tiles.setTilemap(tilemap`
 `)
 tiles.placeOnRandomTile(mySprite, assets.image`block`)
 scene.cameraFollowSprite(mySprite)
+let laser : Sprite = null
 controller.anyButton.onEvent(ControllerButtonEvent.Released, function on_button_released() {
     grid.snap(mySprite)
 })
 function Animate_by_Velocity(sprite: Sprite) {
-    if (sprite.vx > 0) {
+    if (mySprite.vx > 0) {
         sprites.setDataString(mySprite, "direction", "R")
-        animation.runImageAnimation(sprite, assets.animation`
-            villager2WalkRight
-            `, 100, true)
-    } else if (sprite.vx < 0) {
+        animation.runImageAnimation(mySprite, assets.animation`
+            player_Animation_R
+            `, 50, true)
+    } else if (mySprite.vx < 0) {
         sprites.setDataString(mySprite, "direction", "L")
-        animation.runImageAnimation(sprite, assets.animation`
-            villager2WalkLeft
-            `, 100, true)
-    } else if (sprite.vy < 0) {
+        animation.runImageAnimation(mySprite, assets.animation`
+            player_Animation_L
+            `, 50, true)
+    } else if (mySprite.vy < 0) {
         sprites.setDataString(mySprite, "direction", "U")
-        animation.runImageAnimation(sprite, assets.animation`
-            villager2WalkBack
-            `, 100, true)
-    } else if (sprite.vy > 0) {
+        animation.runImageAnimation(mySprite, assets.animation`
+            player_Animation_U
+            `, 50, true)
+    } else if (mySprite.vy > 0) {
         sprites.setDataString(mySprite, "direction", "D")
-        animation.runImageAnimation(sprite, assets.animation`
-            villager2WalkFront
-            `, 100, true)
+        animation.runImageAnimation(mySprite, assets.animation`
+            player_Animation_D
+            `, 50, true)
     } else {
         animation.stopAnimation(animation.AnimationTypes.All, sprite)
     }
     
 }
 
+game.onUpdateInterval(250, function on_update_interval() {
+    Animate_by_Velocity(mySprite)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
+    
+    if (sprites.readDataString(mySprite, "direction") == "U") {
+        laser = sprites.createProjectileFromSprite(assets.image`
+        laser_2
+        `, mySprite, 0, -100)
+    } else if (sprites.readDataString(mySprite, "direction") == "D") {
+        laser = sprites.createProjectileFromSprite(assets.image`
+        laser_2
+        `, mySprite, 0, 100)
+    } else if (sprites.readDataString(mySprite, "direction") == "L") {
+        laser = sprites.createProjectileFromSprite(assets.image`
+        laser
+        `, mySprite, -100, 0)
+    } else if (sprites.readDataString(mySprite, "direction") == "R") {
+        laser = sprites.createProjectileFromSprite(assets.image`
+        laser
+        `, mySprite, 100, 0)
+    }
+    
+})
