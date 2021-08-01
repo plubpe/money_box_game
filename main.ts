@@ -1,3 +1,4 @@
+let Ai_U: Sprite;
 let mySprite = sprites.create(assets.image`
     player_D
 `, SpriteKind.Player)
@@ -5,6 +6,11 @@ controller.moveSprite(mySprite)
 tiles.setTilemap(tilemap`
     level1
 `)
+for (let i = 0; i < 2; i++) {
+    Ai_U = Create_Enemy()
+    tiles.placeOnRandomTile(Ai_U, sprites.dungeon.collectibleInsignia)
+}
+Ai_U = sprites.allOfKind(SpriteKind.Enemy)[0]
 tiles.placeOnRandomTile(mySprite, assets.image`block`)
 scene.cameraFollowSprite(mySprite)
 let laser : Sprite = null
@@ -62,3 +68,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
     }
     
 })
+function Create_Enemy(): Sprite {
+    
+    Ai_U = sprites.create(assets.image`Ai_U`, SpriteKind.Enemy)
+    sprites.setDataString(Ai_U, "direction", "L")
+    return Ai_U
+}
+
