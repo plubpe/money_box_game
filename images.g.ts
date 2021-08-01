@@ -260,25 +260,6 @@ b b b b b b b b b b b b b b b b
 . . . 2 4 f f f f f 4 2 . . . 
 . . . . 2 4 f f f 4 2 . . . . 
 `;
-            case "image16":
-            case "block":return img`
-d d 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-b b b b b b b b b b b b b b b b 
-`;
             case "image17":
             case "laser":return img`
 . . . . . . . . . . . . . . . . 
@@ -338,6 +319,63 @@ a a a a a a a a a a a a a a a a
 `;
             case "image18":
             case "zombieFront":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image16":
+            case "block1":return img`
+d d 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+b b b b b b b b b b b b b b b b 
+`;
+            case "image20":
+            case "block":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image21":
+            case "cat":return img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 

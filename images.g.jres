@@ -69,11 +69,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Ai2_L"
     },
-    "image16": {
-        "data": "hwQQABAAAAAdERERERERsd3d3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b27u7u7u7u7uw==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "block"
-    },
     "image17": {
         "data": "hwQQABAAAAAAAACgCgAAAAAAAKAKAAAAAAAAoAoAAAAAAACgCgAAAAAAAKAKAAAAAAAAoAoAAAAAAACgCgAAAAAAAKAKAAAAAAAAoAoAAAAAAACgCgAAAAAAAKAKAAAAAAAAoAoAAAAAAACgCgAAAAAAAKAKAAAAAAAAoAoAAAAAAACgCgAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -93,6 +88,21 @@
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "zombieFront"
+    },
+    "image16": {
+        "data": "hwQQABAAAAAdERERERERsd3d3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b27u7u7u7u7uw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "block1"
+    },
+    "image20": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "block"
+    },
+    "image21": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "cat"
     },
     "anim5": {
         "namespace": "myAnimations",

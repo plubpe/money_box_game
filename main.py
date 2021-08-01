@@ -8,8 +8,7 @@ tiles.set_tilemap(tilemap("""
 for i in range(2):
     Ai_U = Create_Enemy()
     tiles.place_on_random_tile(Ai_U, sprites.dungeon.collectible_insignia)
-Ai_U = sprites.all_of_kind(SpriteKind.enemy)[0]
-tiles.place_on_random_tile(mySprite,assets.image("""block"""))
+tiles.place_on_random_tile(mySprite,assets.tile("""block"""))
 scene.camera_follow_sprite(mySprite)
 laser: Sprite = None
 
@@ -79,7 +78,15 @@ controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
 
 def Create_Enemy():
     global Ai_U
-    Ai_U = sprites.create(assets.image("""Ai_U"""),
-    SpriteKind.enemy)
+    Ai_U = sprites.create(assets.image("""Ai_U"""),SpriteKind.enemy)
     sprites.set_data_string(Ai_U, "direction", "L")
     return Ai_U
+
+#def on_update_enemy_move():
+    #for enemy in sprites.all_of_kind(SpriteKind.enemy):
+       #path = scene.a_star(tiles.location_of_sprite(enemy),tiles.location_of_sprite(mySprite))
+       #distance = len(path) - 1
+       #print(distance)
+       #if distance <= 5:
+          #scene.follow_path(enemy, path)
+#game.on_update_interval(500, on_update_enemy_move)

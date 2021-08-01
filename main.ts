@@ -10,8 +10,7 @@ for (let i = 0; i < 2; i++) {
     Ai_U = Create_Enemy()
     tiles.placeOnRandomTile(Ai_U, sprites.dungeon.collectibleInsignia)
 }
-Ai_U = sprites.allOfKind(SpriteKind.Enemy)[0]
-tiles.placeOnRandomTile(mySprite, assets.image`block`)
+tiles.placeOnRandomTile(mySprite, assets.tile`block`)
 scene.cameraFollowSprite(mySprite)
 let laser : Sprite = null
 controller.anyButton.onEvent(ControllerButtonEvent.Released, function on_button_released() {
