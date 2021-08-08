@@ -166,3 +166,6 @@ game.onUpdate(function on_on_update() {
         Move_by_Facing(value)
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_on_overlap(sprite: Sprite, otherSprite: Sprite) {
+    game.over(false)
+})

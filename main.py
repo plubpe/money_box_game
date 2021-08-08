@@ -154,3 +154,8 @@ def on_on_update():
         Detect_Wall(value, randint(1, 5))
         Move_by_Facing(value)
 game.on_update(on_on_update)
+
+def on_on_overlap(sprite, otherSprite):
+    game.over(False)
+sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_on_overlap)
+
