@@ -2,9 +2,9 @@ mySprite = sprites.create(assets.image("""
     player_D
 """), SpriteKind.player)
 controller.move_sprite(mySprite)
-tiles.set_tilemap(tilemap("""
-    level1
-"""))
+tiles.set_tilemap(tilemap("""level1"""))
+path: List[tiles.Location] = []
+distance =0
 for i in range(2):
     Ai_U = Create_Enemy()
     tiles.place_on_random_tile(Ai_U, sprites.dungeon.collectible_insignia)
@@ -82,11 +82,63 @@ def Create_Enemy():
     sprites.set_data_string(Ai_U, "direction", "L")
     return Ai_U
 
-#def on_update_enemy_move():
-    #for enemy in sprites.all_of_kind(SpriteKind.enemy):
-       #path = scene.a_star(tiles.location_of_sprite(enemy),tiles.location_of_sprite(mySprite))
-       #distance = len(path) - 1
-       #print(distance)
-       #if distance <= 5:
-          #scene.follow_path(enemy, path)
+def on_update_enemy_move():
+    global path, distance
+    grid.snap(mySprite)
+    for e in sprites.all_of_kind(SpriteKind.enemy):
+       path = scene.a_star(tiles.location_of_sprite(e),tiles.location_of_sprite(mySprite))
+       print(path)
+       print(tiles.location_of_sprite(e))
+       if path != None :
+         distance = len(path) - 1
+         print(distance)
+         if distance <= 5:
+            scene.follow_path(e, path)
 #game.on_update_interval(500, on_update_enemy_move)
+
+
+def Detect_Wall(Sprite2: Sprite, B2: number):
+    if B2 == 1:
+        if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
+            sprites.set_data_string(Sprite2, "direction", "U")
+        elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
+            sprites.set_data_string(Sprite2, "direction", "U")
+        elif Sprite2.is_hitting_tile(CollisionDirection.TOP):
+            sprites.set_data_string(Sprite2, "direction", "U")
+        elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
+            sprites.set_data_string(Sprite2, "direction", "U")
+    elif B2 == 2:
+        if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
+            sprites.set_data_string(Sprite2, "direction", "D")
+        elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
+            sprites.set_data_string(Sprite2, "direction", "D")
+        elif Sprite2.is_hitting_tile(CollisionDirection.TOP):
+            sprites.set_data_string(Sprite2, "direction", "D")
+        elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
+            sprites.set_data_string(Sprite2, "direction", "D")
+    elif B2 == 3:
+        if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
+            sprites.set_data_string(Sprite2, "direction", "R")
+        elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
+            sprites.set_data_string(Sprite2, "direction", "R")
+        elif Sprite2.is_hitting_tile(CollisionDirection.TOP):
+            sprites.set_data_string(Sprite2, "direction", "R")
+        elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
+            sprites.set_data_string(Sprite2, "direction", "R")
+    elif B2 == 4:
+        if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
+            sprites.set_data_string(Sprite2, "direction", "L")
+        elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
+            sprites.set_data_string(Sprite2, "direction", "L")
+        elif Sprite2.is_hitting_tile(CollisionDirection.TOP):
+            sprites.set_data_string(Sprite2, "direction", "L")
+        elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
+            sprites.set_data_string(Sprite2, "direction", "L")
+
+def Create_covid19():
+    global b1
+    b1 = sprites.create(assets.image("""
+    myImage0
+    """), SpriteKind.enemy)
+    sprites.set_data_string(b1, "direction", "L")
+    return b1

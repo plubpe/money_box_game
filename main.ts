@@ -3,9 +3,9 @@ let mySprite = sprites.create(assets.image`
     player_D
 `, SpriteKind.Player)
 controller.moveSprite(mySprite)
-tiles.setTilemap(tilemap`
-    level1
-`)
+tiles.setTilemap(tilemap`level1`)
+let path : tiles.Location[] = []
+let distance = 0
 for (let i = 0; i < 2; i++) {
     Ai_U = Create_Enemy()
     tiles.placeOnRandomTile(Ai_U, sprites.dungeon.collectibleInsignia)
@@ -72,5 +72,74 @@ function Create_Enemy(): Sprite {
     Ai_U = sprites.create(assets.image`Ai_U`, SpriteKind.Enemy)
     sprites.setDataString(Ai_U, "direction", "L")
     return Ai_U
+}
+
+function on_update_enemy_move() {
+    
+    grid.snap(mySprite)
+    for (let e of sprites.allOfKind(SpriteKind.Enemy)) {
+        path = scene.aStar(tiles.locationOfSprite(e), tiles.locationOfSprite(mySprite))
+        console.log(path)
+        console.log(tiles.locationOfSprite(e))
+        if (path != null) {
+            distance = path.length - 1
+            console.log(distance)
+            if (distance <= 5) {
+                scene.followPath(e, path)
+            }
+            
+        }
+        
+    }
+}
+
+// game.on_update_interval(500, on_update_enemy_move)
+function Detect_Wall(Sprite2: Sprite, B2: number) {
+    if (B2 == 1) {
+        if (Sprite2.isHittingTile(CollisionDirection.Left)) {
+            sprites.setDataString(Sprite2, "direction", "U")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
+            sprites.setDataString(Sprite2, "direction", "U")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Top)) {
+            sprites.setDataString(Sprite2, "direction", "U")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Bottom)) {
+            sprites.setDataString(Sprite2, "direction", "U")
+        }
+        
+    } else if (B2 == 2) {
+        if (Sprite2.isHittingTile(CollisionDirection.Left)) {
+            sprites.setDataString(Sprite2, "direction", "D")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
+            sprites.setDataString(Sprite2, "direction", "D")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Top)) {
+            sprites.setDataString(Sprite2, "direction", "D")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Bottom)) {
+            sprites.setDataString(Sprite2, "direction", "D")
+        }
+        
+    } else if (B2 == 3) {
+        if (Sprite2.isHittingTile(CollisionDirection.Left)) {
+            sprites.setDataString(Sprite2, "direction", "R")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
+            sprites.setDataString(Sprite2, "direction", "R")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Top)) {
+            sprites.setDataString(Sprite2, "direction", "R")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Bottom)) {
+            sprites.setDataString(Sprite2, "direction", "R")
+        }
+        
+    } else if (B2 == 4) {
+        if (Sprite2.isHittingTile(CollisionDirection.Left)) {
+            sprites.setDataString(Sprite2, "direction", "L")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
+            sprites.setDataString(Sprite2, "direction", "L")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Top)) {
+            sprites.setDataString(Sprite2, "direction", "L")
+        } else if (Sprite2.isHittingTile(CollisionDirection.Bottom)) {
+            sprites.setDataString(Sprite2, "direction", "L")
+        }
+        
+    }
+    
 }
 
