@@ -97,8 +97,8 @@ def on_update_enemy_move():
 #game.on_update_interval(500, on_update_enemy_move)
 
 
-def Detect_Wall(Sprite2: Sprite, B2: number):
-    if B2 == 1:
+def Detect_Wall(Sprite2: Sprite, Ai2: number):
+    if Ai2 == 1:
         if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
             sprites.set_data_string(Sprite2, "direction", "U")
         elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
@@ -107,7 +107,7 @@ def Detect_Wall(Sprite2: Sprite, B2: number):
             sprites.set_data_string(Sprite2, "direction", "U")
         elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
             sprites.set_data_string(Sprite2, "direction", "U")
-    elif B2 == 2:
+    elif Ai2 == 2:
         if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
             sprites.set_data_string(Sprite2, "direction", "D")
         elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
@@ -116,7 +116,7 @@ def Detect_Wall(Sprite2: Sprite, B2: number):
             sprites.set_data_string(Sprite2, "direction", "D")
         elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
             sprites.set_data_string(Sprite2, "direction", "D")
-    elif B2 == 3:
+    elif Ai2 == 3:
         if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
             sprites.set_data_string(Sprite2, "direction", "R")
         elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
@@ -125,7 +125,7 @@ def Detect_Wall(Sprite2: Sprite, B2: number):
             sprites.set_data_string(Sprite2, "direction", "R")
         elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
             sprites.set_data_string(Sprite2, "direction", "R")
-    elif B2 == 4:
+    elif Ai2 == 4:
         if Sprite2.is_hitting_tile(CollisionDirection.LEFT):
             sprites.set_data_string(Sprite2, "direction", "L")
         elif Sprite2.is_hitting_tile(CollisionDirection.RIGHT):
@@ -135,10 +135,22 @@ def Detect_Wall(Sprite2: Sprite, B2: number):
         elif Sprite2.is_hitting_tile(CollisionDirection.BOTTOM):
             sprites.set_data_string(Sprite2, "direction", "L")
 
-def Create_covid19():
-    global b1
-    b1 = sprites.create(assets.image("""
-    myImage0
-    """), SpriteKind.enemy)
-    sprites.set_data_string(b1, "direction", "L")
-    return b1
+def Move_by_Facing(Sprite2: Sprite):
+    if sprites.read_data_string(Sprite2, "direction") == "L":
+        Sprite2.vx = -20
+        Sprite2.vy = 0
+    elif sprites.read_data_string(Sprite2, "direction") == "R":
+        Sprite2.vx = 20
+        Sprite2.vy = 0
+    elif sprites.read_data_string(Sprite2, "direction") == "U":
+        Sprite2.vx = 0
+        Sprite2.vy = -20
+    elif sprites.read_data_string(Sprite2, "direction") == "D":
+        Sprite2.vx = 0
+        Sprite2.vy = 20
+
+def on_on_update():
+    for value in sprites.all_of_kind(SpriteKind.enemy):
+        Detect_Wall(value, randint(1, 5))
+        Move_by_Facing(value)
+game.on_update(on_on_update)

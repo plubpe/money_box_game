@@ -94,8 +94,8 @@ function on_update_enemy_move() {
 }
 
 // game.on_update_interval(500, on_update_enemy_move)
-function Detect_Wall(Sprite2: Sprite, B2: number) {
-    if (B2 == 1) {
+function Detect_Wall(Sprite2: Sprite, Ai2: number) {
+    if (Ai2 == 1) {
         if (Sprite2.isHittingTile(CollisionDirection.Left)) {
             sprites.setDataString(Sprite2, "direction", "U")
         } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
@@ -106,7 +106,7 @@ function Detect_Wall(Sprite2: Sprite, B2: number) {
             sprites.setDataString(Sprite2, "direction", "U")
         }
         
-    } else if (B2 == 2) {
+    } else if (Ai2 == 2) {
         if (Sprite2.isHittingTile(CollisionDirection.Left)) {
             sprites.setDataString(Sprite2, "direction", "D")
         } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
@@ -117,7 +117,7 @@ function Detect_Wall(Sprite2: Sprite, B2: number) {
             sprites.setDataString(Sprite2, "direction", "D")
         }
         
-    } else if (B2 == 3) {
+    } else if (Ai2 == 3) {
         if (Sprite2.isHittingTile(CollisionDirection.Left)) {
             sprites.setDataString(Sprite2, "direction", "R")
         } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
@@ -128,7 +128,7 @@ function Detect_Wall(Sprite2: Sprite, B2: number) {
             sprites.setDataString(Sprite2, "direction", "R")
         }
         
-    } else if (B2 == 4) {
+    } else if (Ai2 == 4) {
         if (Sprite2.isHittingTile(CollisionDirection.Left)) {
             sprites.setDataString(Sprite2, "direction", "L")
         } else if (Sprite2.isHittingTile(CollisionDirection.Right)) {
@@ -143,3 +143,26 @@ function Detect_Wall(Sprite2: Sprite, B2: number) {
     
 }
 
+function Move_by_Facing(Sprite2: Sprite) {
+    if (sprites.readDataString(Sprite2, "direction") == "L") {
+        Sprite2.vx = -20
+        Sprite2.vy = 0
+    } else if (sprites.readDataString(Sprite2, "direction") == "R") {
+        Sprite2.vx = 20
+        Sprite2.vy = 0
+    } else if (sprites.readDataString(Sprite2, "direction") == "U") {
+        Sprite2.vx = 0
+        Sprite2.vy = -20
+    } else if (sprites.readDataString(Sprite2, "direction") == "D") {
+        Sprite2.vx = 0
+        Sprite2.vy = 20
+    }
+    
+}
+
+game.onUpdate(function on_on_update() {
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        Detect_Wall(value, randint(1, 5))
+        Move_by_Facing(value)
+    }
+})
