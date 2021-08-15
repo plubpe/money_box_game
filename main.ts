@@ -183,28 +183,32 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     let kick_loc4 = tiles.locationInDirection(GPS2, CollisionDirection.Bottom)
     if (tiles.tileAtLocationEquals(kick_loc, assets.tile`block1`)) {
         animation.runImageAnimation(mySprite, assets.animation`
-                    player_Animation_R
-                    `, 50, true)
+                    player_Animation_L
+                    `, 100, true)
         tiles.setTileAt(kick_loc, assets.tile`block0`)
         tiles.setWallAt(kick_loc, false)
+        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, -100, 0)
     } else if (tiles.tileAtLocationEquals(kick_loc2, assets.tile`block1`)) {
         animation.runImageAnimation(mySprite, assets.animation`
-                    player_Animation_kick_L
-                    `, 50, true)
+                    player_Animation_kick_R
+                    `, 100, true)
         tiles.setTileAt(kick_loc2, assets.tile`block0`)
         tiles.setWallAt(kick_loc2, false)
+        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 100, 0)
     } else if (tiles.tileAtLocationEquals(kick_loc3, assets.tile`block1`)) {
         animation.runImageAnimation(mySprite, assets.animation`
-                    player_Animation_kick_R
-                    `, 50, true)
+                    player_Animation_kick_U
+                    `, 100, true)
         tiles.setTileAt(kick_loc3, assets.tile`block0`)
         tiles.setWallAt(kick_loc3, false)
-    } else if (tiles.tileAtLocationEquals(kick_loc3, assets.tile`block1`)) {
+        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 0, -100)
+    } else if (tiles.tileAtLocationEquals(kick_loc4, assets.tile`block1`)) {
         animation.runImageAnimation(mySprite, assets.animation`
-                    player_Animation_kick_R
-                    `, 50, true)
-        tiles.setTileAt(kick_loc3, assets.tile`block0`)
-        tiles.setWallAt(kick_loc3, false)
+                    player_Animation_kick_D
+                    `, 100, true)
+        tiles.setTileAt(kick_loc4, assets.tile`block0`)
+        tiles.setWallAt(kick_loc4, false)
+        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 0, 100)
     }
     
 })

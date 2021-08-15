@@ -172,41 +172,46 @@ def on_b_pressed():
     kick_loc2 = tiles.location_in_direction(GPS2, CollisionDirection.RIGHT)
     kick_loc3 = tiles.location_in_direction(GPS2, CollisionDirection.TOP)
     kick_loc4 = tiles.location_in_direction(GPS2, CollisionDirection.BOTTOM)
+    
 
     if tiles.tile_at_location_equals(kick_loc,assets.tile("""block1""")):
         animation.run_image_animation(mySprite,
                     assets.animation("""
-                    player_Animation_R
+                    player_Animation_L
                     """),
-                    50,
+                    100,
                     True)
         tiles.set_tile_at(kick_loc,assets.tile("""block0"""))
         tiles.set_wall_at(kick_loc, False)
+        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, -100, 0)
     elif tiles.tile_at_location_equals(kick_loc2,assets.tile("""block1""")):
         animation.run_image_animation(mySprite,
                     assets.animation("""
-                    player_Animation_kick_L
+                    player_Animation_kick_R
                     """),
-                    50,
+                    100,
                     True)
         tiles.set_tile_at(kick_loc2,assets.tile("""block0"""))
         tiles.set_wall_at(kick_loc2, False)
+        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 100, 0)
     elif tiles.tile_at_location_equals(kick_loc3,assets.tile("""block1""")):
         animation.run_image_animation(mySprite,
                     assets.animation("""
-                    player_Animation_kick_R
+                    player_Animation_kick_U
                     """),
-                    50,
+                    100,
                     True)
         tiles.set_tile_at(kick_loc3,assets.tile("""block0"""))
         tiles.set_wall_at(kick_loc3, False)
-    elif tiles.tile_at_location_equals(kick_loc3,assets.tile("""block1""")):
+        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 0, -100)
+    elif tiles.tile_at_location_equals(kick_loc4,assets.tile("""block1""")):
         animation.run_image_animation(mySprite,
                     assets.animation("""
-                    player_Animation_kick_R
+                    player_Animation_kick_D
                     """),
-                    50,
+                    100,
                     True)
-        tiles.set_tile_at(kick_loc3,assets.tile("""block0"""))
-        tiles.set_wall_at(kick_loc3, False)
+        tiles.set_tile_at(kick_loc4,assets.tile("""block0"""))
+        tiles.set_wall_at(kick_loc4, False)
+        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 0, 100)
 controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
