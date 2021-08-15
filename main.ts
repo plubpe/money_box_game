@@ -169,3 +169,42 @@ game.onUpdate(function on_on_update() {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_on_overlap(sprite: Sprite, otherSprite: Sprite) {
     game.over(false)
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function on_on_overlap2(sprite2: Sprite, otherSprite2: Sprite) {
+    otherSprite2.destroy()
+    let GPS = tiles.locationOfSprite(otherSprite2)
+    tiles.setTileAt(GPS, assets.tile`block1`)
+    tiles.setWallAt(GPS, true)
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
+    let GPS2 = tiles.locationOfSprite(mySprite)
+    let kick_loc = tiles.locationInDirection(GPS2, CollisionDirection.Left)
+    let kick_loc2 = tiles.locationInDirection(GPS2, CollisionDirection.Right)
+    let kick_loc3 = tiles.locationInDirection(GPS2, CollisionDirection.Top)
+    let kick_loc4 = tiles.locationInDirection(GPS2, CollisionDirection.Bottom)
+    if (tiles.tileAtLocationEquals(kick_loc, assets.tile`block1`)) {
+        animation.runImageAnimation(mySprite, assets.animation`
+                    player_Animation_R
+                    `, 50, true)
+        tiles.setTileAt(kick_loc, assets.tile`block0`)
+        tiles.setWallAt(kick_loc, false)
+    } else if (tiles.tileAtLocationEquals(kick_loc2, assets.tile`block1`)) {
+        animation.runImageAnimation(mySprite, assets.animation`
+                    player_Animation_kick_L
+                    `, 50, true)
+        tiles.setTileAt(kick_loc2, assets.tile`block0`)
+        tiles.setWallAt(kick_loc2, false)
+    } else if (tiles.tileAtLocationEquals(kick_loc3, assets.tile`block1`)) {
+        animation.runImageAnimation(mySprite, assets.animation`
+                    player_Animation_kick_R
+                    `, 50, true)
+        tiles.setTileAt(kick_loc3, assets.tile`block0`)
+        tiles.setWallAt(kick_loc3, false)
+    } else if (tiles.tileAtLocationEquals(kick_loc3, assets.tile`block1`)) {
+        animation.runImageAnimation(mySprite, assets.animation`
+                    player_Animation_kick_R
+                    `, 50, true)
+        tiles.setTileAt(kick_loc3, assets.tile`block0`)
+        tiles.setWallAt(kick_loc3, false)
+    }
+    
+})

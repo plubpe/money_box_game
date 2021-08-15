@@ -6,6 +6,8 @@ namespace myTiles {
     export const tile1 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile3 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile2 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -97,6 +99,8 @@ namespace myTiles {
             case "tile1":return tile1;
             case "block0":
             case "tile3":return tile3;
+            case "block1":
+            case "tile2":return tile2;
         }
         return null;
     })

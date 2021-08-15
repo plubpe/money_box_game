@@ -159,3 +159,54 @@ def on_on_overlap(sprite, otherSprite):
     game.over(False)
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_on_overlap)
 
+def on_on_overlap2(sprite2, otherSprite2):
+    otherSprite2.destroy()
+    GPS=tiles.location_of_sprite(otherSprite2)
+    tiles.set_tile_at(GPS,assets.tile("""block1"""))
+    tiles.set_wall_at(GPS, True)
+sprites.on_overlap(SpriteKind.projectile, SpriteKind.enemy, on_on_overlap2)
+
+def on_b_pressed():
+    GPS2=tiles.location_of_sprite(mySprite)
+    kick_loc = tiles.location_in_direction(GPS2, CollisionDirection.LEFT)
+    kick_loc2 = tiles.location_in_direction(GPS2, CollisionDirection.RIGHT)
+    kick_loc3 = tiles.location_in_direction(GPS2, CollisionDirection.TOP)
+    kick_loc4 = tiles.location_in_direction(GPS2, CollisionDirection.BOTTOM)
+
+    if tiles.tile_at_location_equals(kick_loc,assets.tile("""block1""")):
+        animation.run_image_animation(mySprite,
+                    assets.animation("""
+                    player_Animation_R
+                    """),
+                    50,
+                    True)
+        tiles.set_tile_at(kick_loc,assets.tile("""block0"""))
+        tiles.set_wall_at(kick_loc, False)
+    elif tiles.tile_at_location_equals(kick_loc2,assets.tile("""block1""")):
+        animation.run_image_animation(mySprite,
+                    assets.animation("""
+                    player_Animation_kick_L
+                    """),
+                    50,
+                    True)
+        tiles.set_tile_at(kick_loc2,assets.tile("""block0"""))
+        tiles.set_wall_at(kick_loc2, False)
+    elif tiles.tile_at_location_equals(kick_loc3,assets.tile("""block1""")):
+        animation.run_image_animation(mySprite,
+                    assets.animation("""
+                    player_Animation_kick_R
+                    """),
+                    50,
+                    True)
+        tiles.set_tile_at(kick_loc3,assets.tile("""block0"""))
+        tiles.set_wall_at(kick_loc3, False)
+    elif tiles.tile_at_location_equals(kick_loc3,assets.tile("""block1""")):
+        animation.run_image_animation(mySprite,
+                    assets.animation("""
+                    player_Animation_kick_R
+                    """),
+                    50,
+                    True)
+        tiles.set_tile_at(kick_loc3,assets.tile("""block0"""))
+        tiles.set_wall_at(kick_loc3, False)
+controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
