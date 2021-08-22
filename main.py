@@ -1,3 +1,7 @@
+@namespace
+class SpriteKind:
+    Block = SpriteKind.create()
+
 mySprite = sprites.create(assets.image("""
     player_D
 """), SpriteKind.player)
@@ -183,7 +187,8 @@ def on_b_pressed():
                     True)
         tiles.set_tile_at(kick_loc,assets.tile("""block0"""))
         tiles.set_wall_at(kick_loc, False)
-        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, -100, 0)
+        block = sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, -100, 0)
+        block.set_kind(SpriteKind.Block)
     elif tiles.tile_at_location_equals(kick_loc2,assets.tile("""block1""")):
         animation.run_image_animation(mySprite,
                     assets.animation("""
@@ -193,7 +198,8 @@ def on_b_pressed():
                     True)
         tiles.set_tile_at(kick_loc2,assets.tile("""block0"""))
         tiles.set_wall_at(kick_loc2, False)
-        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 100, 0)
+        block = sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 100, 0)
+        block.set_kind(SpriteKind.Block)
     elif tiles.tile_at_location_equals(kick_loc3,assets.tile("""block1""")):
         animation.run_image_animation(mySprite,
                     assets.animation("""
@@ -203,7 +209,8 @@ def on_b_pressed():
                     True)
         tiles.set_tile_at(kick_loc3,assets.tile("""block0"""))
         tiles.set_wall_at(kick_loc3, False)
-        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 0, -100)
+        block = sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 0, -100)
+        block.set_kind(SpriteKind.Block)
     elif tiles.tile_at_location_equals(kick_loc4,assets.tile("""block1""")):
         animation.run_image_animation(mySprite,
                     assets.animation("""
@@ -213,5 +220,41 @@ def on_b_pressed():
                     True)
         tiles.set_tile_at(kick_loc4,assets.tile("""block0"""))
         tiles.set_wall_at(kick_loc4, False)
-        sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 0, 100)
+        block = sprites.create_projectile_from_sprite(assets.tile("""block1"""), mySprite, 0, 100)
+        block.set_kind(SpriteKind.Block)
 controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
+
+def on_update_spawn_enemy():
+    E = len(sprites.all_of_kind(SpriteKind.enemy))
+    if E < 2:
+        Ai_U = Create_Enemy()
+        tiles.place_on_random_tile(Ai_U, sprites.dungeon.collectible_insignia)
+game.on_update_interval(1000, on_update_spawn_enemy)
+
+def on_update_Detect_Wall_block():
+    for value in sprites.all_of_kind(SpriteKind.Block):
+        Detect_Wall_block(value)
+game.on_update_interval(100, on_update_Detect_Wall_block)
+
+def Detect_Wall_block(Sprite2: Sprite):
+    GPS3 = tiles.location_of_sprite(Sprite2)
+    GPS4 = tiles.location_in_direction(GPS3, CollisionDirection.LEFT)
+    GPS5 = tiles.location_in_direction(GPS3, CollisionDirection.RIGHT)
+    GPS6 = tiles.location_in_direction(GPS3, CollisionDirection.TOP)
+    GPS7 = tiles.location_in_direction(GPS3, CollisionDirection.BOTTOM)
+    if tiles.tile_is_wall(GPS4) tiles.tile_is(GPS4, img(""" """)):
+        tiles.set_tile_at(GPS4,assets.tile("""block0"""))
+        tiles.set_wall_at(GPS4, False)
+        Sprite2.destroy()
+    elif tiles.tile_is_wall(GPS5) :
+        tiles.set_tile_at(GPS5,assets.tile("""block0"""))
+        tiles.set_wall_at(GPS5, False)
+        Sprite2.destroy()
+    elif tiles.tile_is_wall(GPS6) :
+        tiles.set_tile_at(GPS6,assets.tile("""block0"""))
+        tiles.set_wall_at(GPS6, False)
+        Sprite2.destroy()
+    elif tiles.tile_is_wall(GPS7) :
+        tiles.set_tile_at(GPS7,assets.tile("""block0"""))
+        tiles.set_wall_at(GPS7, False)
+        Sprite2.destroy()

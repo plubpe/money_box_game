@@ -1,4 +1,8 @@
 let Ai_U: Sprite;
+namespace SpriteKind {
+    export const Block = SpriteKind.create()
+}
+
 let mySprite = sprites.create(assets.image`
     player_D
 `, SpriteKind.Player)
@@ -176,6 +180,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function on_on_overla
     tiles.setWallAt(GPS, true)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
+    let block: Sprite;
     let GPS2 = tiles.locationOfSprite(mySprite)
     let kick_loc = tiles.locationInDirection(GPS2, CollisionDirection.Left)
     let kick_loc2 = tiles.locationInDirection(GPS2, CollisionDirection.Right)
@@ -187,28 +192,72 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                     `, 100, true)
         tiles.setTileAt(kick_loc, assets.tile`block0`)
         tiles.setWallAt(kick_loc, false)
-        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, -100, 0)
+        block = sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, -100, 0)
+        block.setKind(SpriteKind.Block)
     } else if (tiles.tileAtLocationEquals(kick_loc2, assets.tile`block1`)) {
         animation.runImageAnimation(mySprite, assets.animation`
                     player_Animation_kick_R
                     `, 100, true)
         tiles.setTileAt(kick_loc2, assets.tile`block0`)
         tiles.setWallAt(kick_loc2, false)
-        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 100, 0)
+        block = sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 100, 0)
+        block.setKind(SpriteKind.Block)
     } else if (tiles.tileAtLocationEquals(kick_loc3, assets.tile`block1`)) {
         animation.runImageAnimation(mySprite, assets.animation`
                     player_Animation_kick_U
                     `, 100, true)
         tiles.setTileAt(kick_loc3, assets.tile`block0`)
         tiles.setWallAt(kick_loc3, false)
-        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 0, -100)
+        block = sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 0, -100)
+        block.setKind(SpriteKind.Block)
     } else if (tiles.tileAtLocationEquals(kick_loc4, assets.tile`block1`)) {
         animation.runImageAnimation(mySprite, assets.animation`
                     player_Animation_kick_D
                     `, 100, true)
         tiles.setTileAt(kick_loc4, assets.tile`block0`)
         tiles.setWallAt(kick_loc4, false)
-        sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 0, 100)
+        block = sprites.createProjectileFromSprite(assets.tile`block1`, mySprite, 0, 100)
+        block.setKind(SpriteKind.Block)
     }
     
 })
+game.onUpdateInterval(1000, function on_update_spawn_enemy() {
+    let Ai_U: Sprite;
+    let E = sprites.allOfKind(SpriteKind.Enemy).length
+    if (E < 2) {
+        Ai_U = Create_Enemy()
+        tiles.placeOnRandomTile(Ai_U, sprites.dungeon.collectibleInsignia)
+    }
+    
+})
+game.onUpdateInterval(100, function on_update_Detect_Wall_block() {
+    for (let value of sprites.allOfKind(SpriteKind.Block)) {
+        Detect_Wall_block(value)
+    }
+})
+function Detect_Wall_block(Sprite2: Sprite) {
+    let GPS3 = tiles.locationOfSprite(Sprite2)
+    let GPS4 = tiles.locationInDirection(GPS3, CollisionDirection.Left)
+    let GPS5 = tiles.locationInDirection(GPS3, CollisionDirection.Right)
+    let GPS6 = tiles.locationInDirection(GPS3, CollisionDirection.Top)
+    let GPS7 = tiles.locationInDirection(GPS3, CollisionDirection.Bottom)
+    if (tiles.tileIsWall(GPS4)) {
+        tiles.setTileAt(GPS4, assets.tile`block0`)
+        tiles.setWallAt(GPS4, false)
+        Sprite2.destroy()
+    } else if (tiles.tileIsWall(GPS5)) {
+        tiles.setTileAt(GPS5, assets.tile`block0`)
+        tiles.setWallAt(GPS5, false)
+        Sprite2.destroy()
+    } else if (tiles.tileIsWall(GPS6)) {
+        tiles.setTileAt(GPS6, assets.tile`block0`)
+        tiles.setWallAt(GPS6, false)
+        Sprite2.destroy()
+    } else if (tiles.tileIsWall(GPS7)) {
+        tiles.setTileAt(GPS7, assets.tile`block0`)
+        tiles.setWallAt(GPS7, false)
+        Sprite2.destroy()
+    }
+    
+}
+
