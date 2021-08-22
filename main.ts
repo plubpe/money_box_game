@@ -241,19 +241,19 @@ function Detect_Wall_block(Sprite2: Sprite) {
     let GPS5 = tiles.locationInDirection(GPS3, CollisionDirection.Right)
     let GPS6 = tiles.locationInDirection(GPS3, CollisionDirection.Top)
     let GPS7 = tiles.locationInDirection(GPS3, CollisionDirection.Bottom)
-    if (tiles.tileIsWall(GPS4)) {
+    if (tiles.tileIsWall(GPS4) && tiles.tileIs(GPS4, assets.tile`lava`) && Sprite2.vx < 0) {
         tiles.setTileAt(GPS4, assets.tile`block0`)
         tiles.setWallAt(GPS4, false)
         Sprite2.destroy()
-    } else if (tiles.tileIsWall(GPS5)) {
+    } else if (tiles.tileIsWall(GPS5) && tiles.tileIs(GPS5, assets.tile`lava`) && Sprite2.vx > 0) {
         tiles.setTileAt(GPS5, assets.tile`block0`)
         tiles.setWallAt(GPS5, false)
         Sprite2.destroy()
-    } else if (tiles.tileIsWall(GPS6)) {
+    } else if (tiles.tileIsWall(GPS6) && tiles.tileIs(GPS6, assets.tile`lava`) && Sprite2.vy < 0) {
         tiles.setTileAt(GPS6, assets.tile`block0`)
         tiles.setWallAt(GPS6, false)
         Sprite2.destroy()
-    } else if (tiles.tileIsWall(GPS7)) {
+    } else if (tiles.tileIsWall(GPS7) && tiles.tileIs(GPS7, assets.tile`lava`) && Sprite2.vy > 0) {
         tiles.setTileAt(GPS7, assets.tile`block0`)
         tiles.setWallAt(GPS7, false)
         Sprite2.destroy()

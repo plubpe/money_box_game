@@ -242,19 +242,19 @@ def Detect_Wall_block(Sprite2: Sprite):
     GPS5 = tiles.location_in_direction(GPS3, CollisionDirection.RIGHT)
     GPS6 = tiles.location_in_direction(GPS3, CollisionDirection.TOP)
     GPS7 = tiles.location_in_direction(GPS3, CollisionDirection.BOTTOM)
-    if tiles.tile_is_wall(GPS4) tiles.tile_is(GPS4, img(""" """)):
+    if tiles.tile_is_wall(GPS4) and tiles.tile_is(GPS4,assets.tile("""lava""")) and Sprite2.vx < 0:
         tiles.set_tile_at(GPS4,assets.tile("""block0"""))
         tiles.set_wall_at(GPS4, False)
         Sprite2.destroy()
-    elif tiles.tile_is_wall(GPS5) :
+    elif tiles.tile_is_wall(GPS5) and tiles.tile_is(GPS5,assets.tile("""lava""")) and Sprite2.vx > 0:
         tiles.set_tile_at(GPS5,assets.tile("""block0"""))
         tiles.set_wall_at(GPS5, False)
         Sprite2.destroy()
-    elif tiles.tile_is_wall(GPS6) :
+    elif tiles.tile_is_wall(GPS6) and tiles.tile_is(GPS6,assets.tile("""lava""")) and Sprite2.vy < 0:
         tiles.set_tile_at(GPS6,assets.tile("""block0"""))
         tiles.set_wall_at(GPS6, False)
         Sprite2.destroy()
-    elif tiles.tile_is_wall(GPS7) :
+    elif tiles.tile_is_wall(GPS7) and tiles.tile_is(GPS7,assets.tile("""lava""")) and Sprite2.vy > 0:
         tiles.set_tile_at(GPS7,assets.tile("""block0"""))
         tiles.set_wall_at(GPS7, False)
         Sprite2.destroy()
