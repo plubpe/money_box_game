@@ -3,11 +3,10 @@ namespace SpriteKind {
     export const Block = SpriteKind.create()
 }
 
-let mySprite = sprites.create(assets.image`
-    player_D
-`, SpriteKind.Player)
+let mySprite = sprites.create(assets.image`player_D`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 tiles.setTilemap(tilemap`level1`)
+tiles.placeOnTile(null, tiles.getTileLocation(0, 0))
 let path : tiles.Location[] = []
 let distance = 0
 for (let i = 0; i < 2; i++) {
@@ -19,36 +18,23 @@ scene.cameraFollowSprite(mySprite)
 let laser : Sprite = null
 controller.anyButton.onEvent(ControllerButtonEvent.Released, function on_button_released() {
     grid.snap(mySprite)
+    animation.stopAnimation(animation.AnimationTypes.All, mySprite)
 })
-function Animate_by_Velocity(sprite: Sprite) {
-    if (mySprite.vx > 0) {
-        sprites.setDataString(mySprite, "direction", "R")
-        animation.runImageAnimation(mySprite, assets.animation`
-            player_Animation_R
-            `, 50, true)
-    } else if (mySprite.vx < 0) {
-        sprites.setDataString(mySprite, "direction", "L")
-        animation.runImageAnimation(mySprite, assets.animation`
-            player_Animation_L
-            `, 50, true)
-    } else if (mySprite.vy < 0) {
-        sprites.setDataString(mySprite, "direction", "U")
-        animation.runImageAnimation(mySprite, assets.animation`
-            player_Animation_U
-            `, 50, true)
-    } else if (mySprite.vy > 0) {
-        sprites.setDataString(mySprite, "direction", "D")
-        animation.runImageAnimation(mySprite, assets.animation`
-            player_Animation_D
-            `, 50, true)
-    } else {
-        animation.stopAnimation(animation.AnimationTypes.All, sprite)
-    }
-    
-}
-
-game.onUpdateInterval(250, function on_update_interval() {
-    Animate_by_Velocity(mySprite)
+controller.left.onEvent(ControllerButtonEvent.Pressed, function on_left_pressed() {
+    sprites.setDataString(mySprite, "direction", "L")
+    animation.runImageAnimation(mySprite, assets.animation`player_Animation_L`, 100, true)
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function on_right_pressed() {
+    sprites.setDataString(mySprite, "direction", "R")
+    animation.runImageAnimation(mySprite, assets.animation`player_Animation_R`, 100, true)
+})
+controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {
+    sprites.setDataString(mySprite, "direction", "U")
+    animation.runImageAnimation(mySprite, assets.animation`player_Animation_U`, 100, true)
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function on_down_pressed() {
+    sprites.setDataString(mySprite, "direction", "D")
+    animation.runImageAnimation(mySprite, assets.animation`player_Animation_D`, 100, true)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
     

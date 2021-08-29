@@ -2,11 +2,10 @@
 class SpriteKind:
     Block = SpriteKind.create()
 
-mySprite = sprites.create(assets.image("""
-    player_D
-"""), SpriteKind.player)
+mySprite = sprites.create(assets.image("""player_D"""), SpriteKind.player)
 controller.move_sprite(mySprite)
 tiles.set_tilemap(tilemap("""level1"""))
+tiles.place_on_tile(None, tiles.get_tile_location(0, 0))
 path: List[tiles.Location] = []
 distance =0
 for i in range(2):
@@ -18,47 +17,40 @@ laser: Sprite = None
 
 def on_button_released():
     grid.snap(mySprite)
+    animation.stop_animation(animation.AnimationTypes.ALL, mySprite)
 controller.any_button.on_event(ControllerButtonEvent.RELEASED, on_button_released)
 
-def Animate_by_Velocity(sprite: Sprite):
-    if mySprite.vx > 0:
-        sprites.set_data_string(mySprite, "direction", "R")
-        animation.run_image_animation(mySprite,
-            assets.animation("""
-            player_Animation_R
-            """),
-            50,
-            True)
-    elif mySprite.vx < 0:
-        sprites.set_data_string(mySprite, "direction", "L")
-        animation.run_image_animation(mySprite,
-            assets.animation("""
-            player_Animation_L
-            """),
-            50,
-            True)
-    elif mySprite.vy < 0:
-        sprites.set_data_string(mySprite, "direction", "U")
-        animation.run_image_animation(mySprite,
-            assets.animation("""
-            player_Animation_U
-            """),
-            50,
-            True)
-    elif mySprite.vy > 0:
-        sprites.set_data_string(mySprite, "direction", "D")
-        animation.run_image_animation(mySprite,
-            assets.animation("""
-            player_Animation_D
-            """),
-            50,
-            True)
-    else:
-        animation.stop_animation(animation.AnimationTypes.ALL, sprite)
+def on_left_pressed():
+    sprites.set_data_string(mySprite, "direction", "L")
+    animation.run_image_animation(mySprite,
+        assets.animation("""player_Animation_L"""),
+        100,
+        True)
+controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
 
-def on_update_interval():
-    Animate_by_Velocity(mySprite)
-game.on_update_interval(250, on_update_interval)
+def on_right_pressed():
+    sprites.set_data_string(mySprite, "direction", "R")
+    animation.run_image_animation(mySprite,
+        assets.animation("""player_Animation_R"""),
+        100,
+        True)
+controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
+
+def on_up_pressed():
+    sprites.set_data_string(mySprite, "direction", "U")
+    animation.run_image_animation(mySprite,
+        assets.animation("""player_Animation_U"""),
+        100,
+        True)
+controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
+
+def on_down_pressed():
+    sprites.set_data_string(mySprite, "direction", "D")
+    animation.run_image_animation(mySprite,
+        assets.animation("""player_Animation_D"""),
+        100,
+        True)
+controller.down.on_event(ControllerButtonEvent.PRESSED, on_down_pressed)
 
 def on_a_pressed():
     global laser
