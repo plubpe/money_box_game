@@ -3,10 +3,19 @@ namespace SpriteKind {
     export const Block = SpriteKind.create()
 }
 
+let abc = 0
 let mySprite = sprites.create(assets.image`player_D`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 tiles.setTilemap(tilemap`level1`)
-tiles.placeOnTile(null, tiles.getTileLocation(0, 0))
+let box1 = sprites.create(assets.image`box`, SpriteKind.Food)
+let box2 = sprites.create(assets.image`box`, SpriteKind.Food)
+let box3 = sprites.create(assets.image`box`, SpriteKind.Food)
+tiles.placeOnTile(box1, tiles.getTileLocation(7, 4))
+tiles.placeOnTile(box2, tiles.getTileLocation(8, 4))
+tiles.placeOnTile(box3, tiles.getTileLocation(9, 4))
+animation.runImageAnimation(box1, assets.animation`Box_Animation`, 200, true)
+animation.runImageAnimation(box2, assets.animation`Box_Animation`, 200, true)
+animation.runImageAnimation(box3, assets.animation`Box_Animation`, 200, true)
 let path : tiles.Location[] = []
 let distance = 0
 for (let i = 0; i < 2; i++) {
@@ -247,3 +256,12 @@ function Detect_Wall_block(Sprite2: Sprite) {
     
 }
 
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap_food(sprite: Sprite, otherSprite: Sprite) {
+    
+    otherSprite.destroy()
+    abc = abc + 1
+    if (abc == 3) {
+        game.over(true)
+    }
+    
+})

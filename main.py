@@ -2,10 +2,25 @@
 class SpriteKind:
     Block = SpriteKind.create()
 
+abc = 0
 mySprite = sprites.create(assets.image("""player_D"""), SpriteKind.player)
 controller.move_sprite(mySprite)
 tiles.set_tilemap(tilemap("""level1"""))
-tiles.place_on_tile(None, tiles.get_tile_location(0, 0))
+box1 = sprites.create(assets.image("""box"""), SpriteKind.food)
+box2 = sprites.create(assets.image("""box"""), SpriteKind.food)
+box3 = sprites.create(assets.image("""box"""), SpriteKind.food)
+tiles.place_on_tile(box1, tiles.get_tile_location(7, 4))
+tiles.place_on_tile(box2, tiles.get_tile_location(8, 4))
+tiles.place_on_tile(box3, tiles.get_tile_location(9, 4))
+animation.run_image_animation(box1, assets.animation("""Box_Animation"""),
+                200,
+                True)
+animation.run_image_animation(box2, assets.animation("""Box_Animation"""),
+                200,
+                True)
+animation.run_image_animation(box3, assets.animation("""Box_Animation"""),
+                200,
+                True)
 path: List[tiles.Location] = []
 distance =0
 for i in range(2):
@@ -91,7 +106,6 @@ def on_update_enemy_move():
          if distance <= 5:
             scene.follow_path(e, path)
 #game.on_update_interval(500, on_update_enemy_move)
-
 
 def Detect_Wall(Sprite2: Sprite, Ai2: number):
     if Ai2 == 1:
@@ -250,3 +264,12 @@ def Detect_Wall_block(Sprite2: Sprite):
         tiles.set_tile_at(GPS7,assets.tile("""block0"""))
         tiles.set_wall_at(GPS7, False)
         Sprite2.destroy()
+
+def on_overlap_food(sprite, otherSprite):
+    global abc
+    otherSprite.destroy()
+    abc = abc+1
+    if abc == 3 :
+        game.over(True)
+sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap_food)
+
