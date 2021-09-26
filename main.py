@@ -10,6 +10,7 @@ laser: Sprite = None
 Ai_U: Sprite = None
 path = None
 distance = 0
+info.start_countdown(90)
 
 create_a_scene()
 
@@ -308,4 +309,3 @@ def on_overlap_food(sprite, otherSprite):
     elif abc == 8 :
         game.over(True)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap_food)
-
