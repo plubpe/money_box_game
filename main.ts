@@ -10,7 +10,7 @@ let laser : Sprite = null
 let Ai_U : Sprite = null
 let path = null
 let distance = 0
-info.startCountdown(90)
+info.startCountdown(100)
 create_a_scene()
 function create_a_scene() {
     let Ai_U: Sprite;

@@ -10,7 +10,7 @@ laser: Sprite = None
 Ai_U: Sprite = None
 path = None
 distance = 0
-info.start_countdown(90)
+info.start_countdown(100)
 
 create_a_scene()
 
