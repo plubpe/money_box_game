@@ -28,6 +28,12 @@
         "tilemapTile": true,
         "displayName": "lava"
     },
+    "tile5": {
+        "data": "hwQQABAAAAAREREREREREZGZmZmZmZmJkZmZmZmZmYmRmZmZmZmZiZGZmZmZmZmJkZmZmZmZmYmRmZmZmZmZiZGZmZmZmZmJkZmZmZmZmYmRmZmZmZmZiZGZmZmZmZmJkZmZmZmZmYmRmZmZmZmZiZGZmZmZmZmJkZmZmZmZmYmBiIiIiIiIiA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile"
+    },
     "level2": {
         "id": "level2",
         "mimeType": "application/mkcd-tilemap",
@@ -69,6 +75,21 @@
             "myTiles.tile4"
         ],
         "displayName": "level1"
+    },
+    "level5": {
+        "id": "level5",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAxMTAwMTEwMDAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAyMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAxMDEwNjAxMDEwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDEwMzAxMDMwMTAzMDMwMzAzMDMwMzAzMDMwMzAyMDMwMzAzMDMwMzAzMDMwMzAzMDIwMzAzMDMwMzAzMDIwMzAyMDMwMTAxMDEwMTAxMDMwMjAzMDIwMzAzMDMwMjAzMDMwMzAxMDEwMTAxMDEwMTAxMDMwMzAzMDIwMzAzMDIwMzAzMDEwMTAxMDEwMTAxMDEwMTAxMDMwMzAyMDMwMzAzMDIwMzAxMDEwMTAxMDEwMTAxMDEwMTAzMDIwMzAzMDMwMzAzMDIwNTAxMDEwMTA0MDEwMTAxMDUwMjAzMDMwMzAzMDMwMzAzMDMwMTAxMDEwMTAxMDEwMTAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMTAxMDEwMTAxMDMwMzAzMDMwMzAzMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMDAwMDIwMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwMjAyMDIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwMDAwMjAyMjIyMjIyMjIyMDAwMDAwMjAyMjIyMjIyMjAwMDAwMDAwMjAyMjIyMjIwMjAwMDAwMDAwMjIyMjIyMjIwMDAwMDAwMDIwMjIyMjIyMjIwMDAwMDAyMDIyMjIyMjIyMjIwMDAwMjAyMjIyMDI=",
+        "tileset": [
+            "myTiles.transparency16",
+            "myTiles.tile3",
+            "sprites.dungeon.floorLight2",
+            "sprites.dungeon.hazardLava0",
+            "myTiles.tile1",
+            "sprites.dungeon.collectibleInsignia",
+            "myTiles.tile5"
+        ],
+        "displayName": "level5"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

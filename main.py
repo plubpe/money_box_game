@@ -5,30 +5,56 @@ class SpriteKind:
 abc = 0
 mySprite = sprites.create(assets.image("""player_D"""), SpriteKind.player)
 controller.move_sprite(mySprite)
-tiles.set_tilemap(tilemap("""level1"""))
-box1 = sprites.create(assets.image("""box"""), SpriteKind.food)
-box2 = sprites.create(assets.image("""box"""), SpriteKind.food)
-box3 = sprites.create(assets.image("""box"""), SpriteKind.food)
-tiles.place_on_tile(box1, tiles.get_tile_location(7, 4))
-tiles.place_on_tile(box2, tiles.get_tile_location(8, 4))
-tiles.place_on_tile(box3, tiles.get_tile_location(9, 4))
-animation.run_image_animation(box1, assets.animation("""Box_Animation"""),
-                200,
-                True)
-animation.run_image_animation(box2, assets.animation("""Box_Animation"""),
-                200,
-                True)
-animation.run_image_animation(box3, assets.animation("""Box_Animation"""),
-                200,
-                True)
-path: List[tiles.Location] = []
-distance =0
-for i in range(2):
-    Ai_U = Create_Enemy()
-    tiles.place_on_random_tile(Ai_U, sprites.dungeon.collectible_insignia)
-tiles.place_on_random_tile(mySprite,assets.tile("""block"""))
 scene.camera_follow_sprite(mySprite)
 laser: Sprite = None
+Ai_U: Sprite = None
+path = None
+distance = 0
+
+create_a_scene()
+
+def create_a_scene():
+    tiles.set_tilemap(tilemap("""level1"""))
+    box1 = sprites.create(assets.image("""box"""), SpriteKind.food)
+    box2 = sprites.create(assets.image("""box"""), SpriteKind.food)
+    box3 = sprites.create(assets.image("""box"""), SpriteKind.food)
+    tiles.place_on_tile(box1, tiles.get_tile_location(7, 4))
+    tiles.place_on_tile(box2, tiles.get_tile_location(8, 4))
+    tiles.place_on_tile(box3, tiles.get_tile_location(9, 4))
+    animation.run_image_animation(box1, assets.animation("""Box_Animation"""),
+                    200,
+                    True)
+    animation.run_image_animation(box2, assets.animation("""Box_Animation"""),
+                    200,
+                    True)
+    animation.run_image_animation(box3, assets.animation("""Box_Animation"""),
+                    200,
+                    True)
+    path: List[tiles.Location] = []
+    distance =0
+    for i in range(2):
+        Ai_U = Create_Enemy()
+        tiles.place_on_random_tile(Ai_U, sprites.dungeon.collectible_insignia)
+    tiles.place_on_random_tile(mySprite,assets.tile("""block"""))
+
+def create_a_scene_2():
+    tiles.set_tilemap(tilemap("""level2"""))
+    box1 = sprites.create(assets.image("""box"""), SpriteKind.food)
+    box2 = sprites.create(assets.image("""box"""), SpriteKind.food)
+    tiles.place_on_tile(box1, tiles.get_tile_location(1, 1))
+    tiles.place_on_tile(box2, tiles.get_tile_location(1, 1))
+    animation.run_image_animation(box1, assets.animation("""Box_Animation"""),
+                    200,
+                    True)
+    animation.run_image_animation(box2, assets.animation("""Box_Animation"""),
+                    200,
+                    True)
+    path: List[tiles.Location] = []
+    distance =0
+    for i in range(2):
+        Ai_U = Create_Enemy()
+        tiles.place_on_random_tile(Ai_U, sprites.dungeon.collectible_insignia)
+    tiles.place_on_random_tile(mySprite,assets.tile("""block"""))
 
 def on_button_released():
     grid.snap(mySprite)
@@ -270,6 +296,6 @@ def on_overlap_food(sprite, otherSprite):
     otherSprite.destroy()
     abc = abc+1
     if abc == 3 :
-        game.over(True)
+        pass
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap_food)
 

@@ -1,4 +1,3 @@
-let Ai_U: Sprite;
 namespace SpriteKind {
     export const Block = SpriteKind.create()
 }
@@ -6,25 +5,51 @@ namespace SpriteKind {
 let abc = 0
 let mySprite = sprites.create(assets.image`player_D`, SpriteKind.Player)
 controller.moveSprite(mySprite)
-tiles.setTilemap(tilemap`level1`)
-let box1 = sprites.create(assets.image`box`, SpriteKind.Food)
-let box2 = sprites.create(assets.image`box`, SpriteKind.Food)
-let box3 = sprites.create(assets.image`box`, SpriteKind.Food)
-tiles.placeOnTile(box1, tiles.getTileLocation(7, 4))
-tiles.placeOnTile(box2, tiles.getTileLocation(8, 4))
-tiles.placeOnTile(box3, tiles.getTileLocation(9, 4))
-animation.runImageAnimation(box1, assets.animation`Box_Animation`, 200, true)
-animation.runImageAnimation(box2, assets.animation`Box_Animation`, 200, true)
-animation.runImageAnimation(box3, assets.animation`Box_Animation`, 200, true)
-let path : tiles.Location[] = []
-let distance = 0
-for (let i = 0; i < 2; i++) {
-    Ai_U = Create_Enemy()
-    tiles.placeOnRandomTile(Ai_U, sprites.dungeon.collectibleInsignia)
-}
-tiles.placeOnRandomTile(mySprite, assets.tile`block`)
 scene.cameraFollowSprite(mySprite)
 let laser : Sprite = null
+let Ai_U : Sprite = null
+let path = null
+let distance = 0
+create_a_scene()
+function create_a_scene() {
+    let Ai_U: Sprite;
+    tiles.setTilemap(tilemap`level1`)
+    let box1 = sprites.create(assets.image`box`, SpriteKind.Food)
+    let box2 = sprites.create(assets.image`box`, SpriteKind.Food)
+    let box3 = sprites.create(assets.image`box`, SpriteKind.Food)
+    tiles.placeOnTile(box1, tiles.getTileLocation(7, 4))
+    tiles.placeOnTile(box2, tiles.getTileLocation(8, 4))
+    tiles.placeOnTile(box3, tiles.getTileLocation(9, 4))
+    animation.runImageAnimation(box1, assets.animation`Box_Animation`, 200, true)
+    animation.runImageAnimation(box2, assets.animation`Box_Animation`, 200, true)
+    animation.runImageAnimation(box3, assets.animation`Box_Animation`, 200, true)
+    let path : tiles.Location[] = []
+    let distance = 0
+    for (let i = 0; i < 2; i++) {
+        Ai_U = Create_Enemy()
+        tiles.placeOnRandomTile(Ai_U, sprites.dungeon.collectibleInsignia)
+    }
+    tiles.placeOnRandomTile(mySprite, assets.tile`block`)
+}
+
+function create_a_scene_2() {
+    let Ai_U: Sprite;
+    tiles.setTilemap(tilemap`level2`)
+    let box1 = sprites.create(assets.image`box`, SpriteKind.Food)
+    let box2 = sprites.create(assets.image`box`, SpriteKind.Food)
+    tiles.placeOnTile(box1, tiles.getTileLocation(1, 1))
+    tiles.placeOnTile(box2, tiles.getTileLocation(1, 1))
+    animation.runImageAnimation(box1, assets.animation`Box_Animation`, 200, true)
+    animation.runImageAnimation(box2, assets.animation`Box_Animation`, 200, true)
+    let path : tiles.Location[] = []
+    let distance = 0
+    for (let i = 0; i < 2; i++) {
+        Ai_U = Create_Enemy()
+        tiles.placeOnRandomTile(Ai_U, sprites.dungeon.collectibleInsignia)
+    }
+    tiles.placeOnRandomTile(mySprite, assets.tile`block`)
+}
+
 controller.anyButton.onEvent(ControllerButtonEvent.Released, function on_button_released() {
     grid.snap(mySprite)
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
@@ -261,7 +286,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap_food(s
     otherSprite.destroy()
     abc = abc + 1
     if (abc == 3) {
-        game.over(true)
+        
     }
     
 })

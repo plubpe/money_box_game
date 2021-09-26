@@ -10,6 +10,8 @@ namespace myTiles {
     export const tile2 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile4 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile5 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -90,6 +92,26 @@ namespace myTiles {
 2 2 2 2 2 2 2 2 . 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `, [myTiles.transparency16,sprites.dungeon.hazardLava0,sprites.dungeon.collectibleInsignia,sprites.castle.rock0,myTiles.tile1,myTiles.tile3,myTiles.tile4], TileScale.Sixteen);
+            case "level5":
+            case "level5":return tiles.createTilemap(hex`1100110003030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030302030303030303030303030303030301010601010303030303030303030303030303030303030303030303030303030303010301030103030303030303030302030303030303030303020303030303020302030101010101030203020303030203030301010101010101030303020303020303010101010101010101030302030303020301010101010101010103020303030303020501010104010101050203030303030303030101010101010103030303030303030303030101010101030303030303`, img`
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 . . . . . 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 . 2 . 2 . 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 . . . . . 2 2 2 2 2 2 
+2 2 2 2 2 . . . . . . . 2 2 2 2 2 
+2 2 2 2 . . . . . . . . . 2 2 2 2 
+2 2 2 2 . . . . . . . . . 2 2 2 2 
+2 2 2 2 . . . . . . . . . 2 2 2 2 
+2 2 2 2 2 . . . . . . . 2 2 2 2 2 
+2 2 2 2 2 2 . . . . . 2 2 2 2 2 2 
+`, [myTiles.transparency16,myTiles.tile3,sprites.dungeon.floorLight2,sprites.dungeon.hazardLava0,myTiles.tile1,sprites.dungeon.collectibleInsignia,myTiles.tile5], TileScale.Sixteen);
         }
         return null;
     })
@@ -105,6 +127,8 @@ namespace myTiles {
             case "tile2":return tile2;
             case "lava":
             case "tile4":return tile4;
+            case "myTile":
+            case "tile5":return tile5;
         }
         return null;
     })
