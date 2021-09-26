@@ -34,11 +34,17 @@ function create_a_scene() {
 
 function create_a_scene_2() {
     let Ai_U: Sprite;
-    tiles.setTilemap(tilemap`level2`)
+    let potion1 = sprites.create(assets.image`potion`, SpriteKind.Food)
+    let potion2 = sprites.create(assets.image`potion`, SpriteKind.Food)
+    let potion3 = sprites.create(assets.image`potion`, SpriteKind.Food)
+    tiles.setTilemap(tilemap`level5`)
     let box1 = sprites.create(assets.image`box`, SpriteKind.Food)
     let box2 = sprites.create(assets.image`box`, SpriteKind.Food)
-    tiles.placeOnTile(box1, tiles.getTileLocation(1, 1))
-    tiles.placeOnTile(box2, tiles.getTileLocation(1, 1))
+    tiles.placeOnTile(box1, tiles.getTileLocation(7, 6))
+    tiles.placeOnTile(box2, tiles.getTileLocation(9, 6))
+    tiles.placeOnTile(potion1, tiles.getTileLocation(6, 8))
+    tiles.placeOnTile(potion2, tiles.getTileLocation(8, 8))
+    tiles.placeOnTile(potion3, tiles.getTileLocation(10, 8))
     animation.runImageAnimation(box1, assets.animation`Box_Animation`, 200, true)
     animation.runImageAnimation(box2, assets.animation`Box_Animation`, 200, true)
     let path : tiles.Location[] = []
@@ -286,7 +292,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap_food(s
     otherSprite.destroy()
     abc = abc + 1
     if (abc == 3) {
-        
+        for (let e of sprites.allOfKind(SpriteKind.Enemy)) {
+            e.destroy()
+        }
+        create_a_scene_2()
+    } else if (abc == 8) {
+        game.over(true)
     }
     
 })

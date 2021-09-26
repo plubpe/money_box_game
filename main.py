@@ -38,11 +38,17 @@ def create_a_scene():
     tiles.place_on_random_tile(mySprite,assets.tile("""block"""))
 
 def create_a_scene_2():
-    tiles.set_tilemap(tilemap("""level2"""))
+    potion1 = sprites.create(assets.image("""potion"""), SpriteKind.food)
+    potion2 = sprites.create(assets.image("""potion"""), SpriteKind.food)
+    potion3 = sprites.create(assets.image("""potion"""), SpriteKind.food)
+    tiles.set_tilemap(tilemap("""level5"""))
     box1 = sprites.create(assets.image("""box"""), SpriteKind.food)
     box2 = sprites.create(assets.image("""box"""), SpriteKind.food)
-    tiles.place_on_tile(box1, tiles.get_tile_location(1, 1))
-    tiles.place_on_tile(box2, tiles.get_tile_location(1, 1))
+    tiles.place_on_tile(box1, tiles.get_tile_location(7, 6))
+    tiles.place_on_tile(box2, tiles.get_tile_location(9, 6))
+    tiles.place_on_tile(potion1, tiles.get_tile_location(6, 8))
+    tiles.place_on_tile(potion2, tiles.get_tile_location(8, 8))
+    tiles.place_on_tile(potion3, tiles.get_tile_location(10, 8))
     animation.run_image_animation(box1, assets.animation("""Box_Animation"""),
                     200,
                     True)
@@ -296,6 +302,10 @@ def on_overlap_food(sprite, otherSprite):
     otherSprite.destroy()
     abc = abc+1
     if abc == 3 :
-        pass
+        for e in sprites.all_of_kind(SpriteKind.enemy):
+            e.destroy()
+        create_a_scene_2()
+    elif abc == 8 :
+        game.over(True)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap_food)
 
